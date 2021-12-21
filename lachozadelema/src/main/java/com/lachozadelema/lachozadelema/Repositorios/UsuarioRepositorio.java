@@ -10,9 +10,9 @@ import com.lachozadelema.lachozadelema.entidades.Usuario;
 @Repository
 public interface UsuarioRepositorio extends JpaRepository<Usuario, String>{
 	
-	@Query("SELECT a FROM Usuario a WHERE a.id LIKE :id")
+	@Query("SELECT a FROM Usuario a WHERE a.id LIKE :id")// NO se pone porque JpaRepository lo tiene por defecto
 	public Usuario retornarUsuarioPorId(@Param ("id") String id );
 	
-	@Query("SELECT a FROM Usuario a WHERE a.nombre LIKE :nombre")
+	@Query("SELECT a FROM Usuario a WHERE a.username LIKE :nombre")
 	public Usuario retornarUsuarioPorNombre(@Param ("nombre") String nombre );
 }
