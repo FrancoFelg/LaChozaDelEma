@@ -15,7 +15,7 @@ public class Usuario{
 	private String id;
 	private String username;
 	private String password;
-	//private Foto foto
+	//private Foto foto;
 	private String rol;
 	private Boolean status;
 	

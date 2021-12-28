@@ -24,7 +24,7 @@ public class Foto {
 	private byte[] contenido;
 
 	public Foto() {
-		super();
+		
 	}
 
 	public Foto(String id, String name, String mime, byte[] contenido) {
