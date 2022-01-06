@@ -15,9 +15,11 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.lachozadelema.lachozadelema.Errores.ErrorServicio;
 import com.lachozadelema.lachozadelema.Repositorios.UsuarioRepositorio;
+import com.lachozadelema.lachozadelema.entidades.Foto;
 import com.lachozadelema.lachozadelema.entidades.Usuario;
 
 @Service
@@ -26,8 +28,11 @@ public class UsuarioService implements UserDetailsService{
 	@Autowired
 	private UsuarioRepositorio usuarioRepositorio;
 	
+	@Autowired
+	private FotoServicio fotoServicio;
+	
 	//Create
-	public void crearUsuario(String nombre, String Password) throws ErrorServicio {
+	public void crearUsuario(MultipartFile imagen, String nombre, String Password) throws Exception {
 		
 		
 		Usuario usuario = new Usuario();
@@ -36,6 +41,9 @@ public class UsuarioService implements UserDetailsService{
 		usuario.setRol("ROL_USER");
 		usuario.setStatus(true);
 		
+		Foto foto = fotoServicio.guardar(imagen);
+		usuario.setFoto(foto);
+				
 		usuarioRepositorio.save(usuario);
 		
 	}

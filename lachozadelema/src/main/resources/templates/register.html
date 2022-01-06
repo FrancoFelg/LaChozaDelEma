@@ -14,12 +14,15 @@
             <div class="col-md-4 col-lg-3">
                 
 
-                <form th:action="@{/usuario/crearUsuario}" method="POST">
+                <form th:action="@{/usuario/crearUsuario}" method="POST" enctype="multipart/form-data">
                     <label for="inputUsername">Insert your username</label>
                     <input id="inputUsername" name="username" type="text" placeholder="Franco Lamberti">
 
                     <label for="inputPassword">Insert your password</label>
                     <input id="inputPassword" name="password" type="password">
+
+                    <label for="inputImage">Insert your photo</label>
+                    <input id="inputImage" name="image" type="file">
 
                     <input type="submit" value="Crear">
                 </form>
