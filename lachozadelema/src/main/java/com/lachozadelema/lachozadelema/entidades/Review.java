@@ -9,43 +9,30 @@ import org.hibernate.annotations.GenericGenerator;
 @Entity
 public class Review {
 
+	//@OneToMany
+	//private Foto foto;
 	@Id
 	@GeneratedValue(generator="uuid")
 	@GenericGenerator(name="uuid", strategy="uuid2")
 	private String id;
-	
 	private String titulo;
-	
-	private String sinopsis;
-	
+	private String descripcion;
 	private String textoAnalisis;
-	
 	private Integer clasificacion;
+	/*
+	 @OneToMany
+	 private List<Comentario> comentarios;
+	 */
 	
-	//private List listaComentarios;
-	
-	private Foto imagen;
-
-	public Review() {
-		super();
+	public Review() {		
 	}
-
-	public Review(String id, String titulo, String sinopsis, String textoAnalisis, Integer clasificacion, Foto imagen) {
-		super();
-		this.id = id;
+	
+	
+	public Review(String titulo, String descripcion, String textoAnalisis, Integer clasificacion) {		
 		this.titulo = titulo;
-		this.sinopsis = sinopsis;
+		this.descripcion = descripcion;
 		this.textoAnalisis = textoAnalisis;
 		this.clasificacion = clasificacion;
-		this.imagen = imagen;
-	}
-
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
 	}
 
 	public String getTitulo() {
@@ -56,12 +43,12 @@ public class Review {
 		this.titulo = titulo;
 	}
 
-	public String getSinopsis() {
-		return sinopsis;
+	public String getDescripcion() {
+		return descripcion;
 	}
 
-	public void setSinopsis(String sinopsis) {
-		this.sinopsis = sinopsis;
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
 	}
 
 	public String getTextoAnalisis() {
@@ -79,14 +66,7 @@ public class Review {
 	public void setClasificacion(Integer clasificacion) {
 		this.clasificacion = clasificacion;
 	}
-
-	public Foto getImagen() {
-		return imagen;
-	}
-
-	public void setImagen(Foto imagen) {
-		this.imagen = imagen;
-	}
+	
 	
 	
 	

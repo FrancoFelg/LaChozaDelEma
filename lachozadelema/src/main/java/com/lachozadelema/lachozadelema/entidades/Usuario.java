@@ -3,6 +3,7 @@ package com.lachozadelema.lachozadelema.entidades;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -14,6 +15,7 @@ public class Usuario{
 	@GenericGenerator(name="uuid", strategy="uuid2")
 	private String id;
 	private String username;
+	
 	private String password;
 	//private Foto foto;
 	private String rol;
@@ -68,6 +70,14 @@ public class Usuario{
 
 	public void setStatus(Boolean status) {
 		this.status = status;
+	}
+
+	public Foto getFoto() {
+		return foto;
+	}
+
+	public void setFoto(Foto foto) {
+		this.foto = foto;
 	}
 	
 	
