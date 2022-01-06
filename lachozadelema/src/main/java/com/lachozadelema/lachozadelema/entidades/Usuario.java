@@ -17,8 +17,7 @@ public class Usuario{
 	private String username;
 	
 	private String password;
-	@OneToOne
-	private Foto foto;
+	//private Foto foto;
 	private String rol;
 	private Boolean status;
 	

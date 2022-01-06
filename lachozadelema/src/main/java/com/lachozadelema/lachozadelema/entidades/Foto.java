@@ -18,8 +18,23 @@ public class Foto {
 	private String id;
 	private String mime;
 	private String name;
-	@Lob @Basic(fetch = FetchType.LAZY)
-	private byte[] content;
+    private String mime;
+	
+	@Lob @Basic(fetch=FetchType.LAZY)
+	private byte[] contenido;
+
+	public Foto() {
+		
+	}
+
+	public Foto(String id, String name, String mime, byte[] contenido) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.mime = mime;
+		this.contenido = contenido;
+	}
+
 	public String getId() {
 		return id;
 	}

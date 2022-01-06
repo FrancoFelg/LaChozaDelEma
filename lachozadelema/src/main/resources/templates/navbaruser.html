@@ -1,0 +1,45 @@
+<!-- Empieza barra CON usuario-->
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+                <!-- Elementos a la derecha -->
+                <div class="d-flex align-items-center">
+                    
+                    <!-- Avatar -->
+                    <div id='header'style="margin-left: 20px;">
+                        <div class='toolbar'>        
+                            <div class='avatar-dropdown-menu'>
+                                
+                                <div th:if="${session.usuariosession.foto==null}" class='avatar-image'>
+                                </div>
+                                <div>
+                                    <img
+                                        th:if="${session.usuariosession.foto!=null}" class="img-fluid2 rounded-circle" 
+                                        th:src="${'/foto/usuario/'+session.usuariosession.id}" alt="">
+                                    <img/>
+                                </div>
+                                
+                                
+                                <div class='avatar-dropdown-menu-items'>
+                                    <ul>
+                                        <li>
+                                            <a th:href="@{/usuario/configurarUsuario(idUsuario=__${session.usuariosession.id}__)}" >Configuración</a>
+                                        </li>
+                                        <li>
+                                            <a th:href="@{/usuario/configurarContraseÃ±a(idUsuario=__${session.usuariosession.id}__)}" >Cambiar contraseña</a>
+                                        </li>
+                                        <li>
+                                            <a href="/logout">Cerrar Sesión</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+        </nav>
+        <!-- Navbar -->
+
+        <!-- Termina barra CON usuario-->
