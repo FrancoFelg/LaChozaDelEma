@@ -17,14 +17,16 @@ public class Usuario{
 	private String username;
 	
 	private String password;
-	//private Foto foto;
+	
+	@OneToOne
+	private Foto foto;
+	
 	private String rol;
 	private Boolean status;
 	
 	public Usuario() {}
 	
 	public Usuario(String id, String username, String password, String rol, Boolean status) {
-		super();
 		this.id = id;
 		this.username = username;
 		this.password = password;
