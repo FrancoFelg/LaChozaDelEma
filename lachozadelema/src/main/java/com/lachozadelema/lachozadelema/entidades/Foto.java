@@ -6,7 +6,6 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Lob;
-
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
@@ -18,7 +17,7 @@ public class Foto {
 	private String id;
 	private String mime;
 	private String name;
-    private String mime;
+    
 	
 	@Lob @Basic(fetch=FetchType.LAZY)
 	private byte[] contenido;
@@ -28,7 +27,6 @@ public class Foto {
 	}
 
 	public Foto(String id, String name, String mime, byte[] contenido) {
-		super();
 		this.id = id;
 		this.name = name;
 		this.mime = mime;
@@ -47,11 +45,11 @@ public class Foto {
 	public void setMime(String mime) {
 		this.mime = mime;
 	}
-	public byte[] getContent() {
-		return content;
+	public byte[] getContenido() {
+		return contenido;
 	}
-	public void setContent(byte[] content) {
-		this.content = content;
+	public void setContenido(byte[] contenido) {
+		this.contenido = contenido;
 	}
 	public String getName() {
 		return name;

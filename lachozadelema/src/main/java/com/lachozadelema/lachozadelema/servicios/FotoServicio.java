@@ -22,7 +22,7 @@ public class FotoServicio {
 				//Setteo sus atributos
 				foto.setMime(image.getContentType());
 				foto.setName(image.getName());
-				foto.setContent(image.getBytes());
+				foto.setContenido(image.getBytes());
 				
 				return fotoRepositorio.save(foto);//Devuelvo la imágen que guardo
 			}catch(Exception e) {
@@ -47,7 +47,7 @@ public class FotoServicio {
 				//Setteo sus atributos
 				foto.setMime(image.getContentType());
 				foto.setName(image.getName());
-				foto.setContent(image.getBytes());
+				foto.setContenido(image.getBytes());
 				
 				return fotoRepositorio.save(foto);//Devuelvo la imágen que guardo
 			}catch(Exception e) {
