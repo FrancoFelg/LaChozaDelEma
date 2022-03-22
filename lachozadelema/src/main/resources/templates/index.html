@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
     <meta charset="UTF-8">
@@ -14,9 +14,7 @@
 <body>
     <!-- IMAGEN PORTADA -->
     <div>
-
-        
-        <img src="..." class="img-fluid" alt="...">
+        <img src="imagenes/index1.png" class="img-fluid" alt="Imagen portada">
     </div>
     <nav th:replace="/fragments/navbar :: nav"></nav>
     
@@ -26,7 +24,7 @@
       
       <!-- HTML A YOUTUBE -->
     <div class="container">
-      <a href=" "><img src=" " class="img-fluid"></a>
+      <a th:href="@{/youtubeChannel}"><img src="imagenes/youtubeLink.png" class="img-fluid"></a>
       <h3>
           Mira más videos en nuestro canal de YouTube. No te olvides de suscribirte para apoyarnos.
       </h3>
@@ -35,7 +33,7 @@
 
       <!-- LINK A PESTAÑA REVIEWS -->
     <div class="container">
-      <a href=" "><img src=" " class="img-fluid"></a>
+      <a th:href="@{/youtubeListReview}"><img src="imagenes/reviewLink.png" class="img-fluid"></a>
       <h3>
           Lee las reviews que hemos preparado para vos.
       </h3>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio - La Choza del Ema</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+</head>
+
+<body>
+    <!-- EMPIEZA LA LISTA DE RESEÑAS -->
+    <h1>LISTA DE REVIEWS</h1>
+    
+    <br>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-4">
+                <div th:each="review : ${listaReviews}" class="card" style="width: 18rem;">
+                	<a th:href="${'review'+ review.id}">
+                    <img th:src="${'/foto/review?id='} + ${movie.id}" class="card-img-top" alt="imagenCard">
+                    <div class="card-body">
+                    	<h3 th:text="${review.titulo}" >Titulo</h3>
+                     <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PIE DE PAGINA -->
+    <div th:replace="/fragments/piePagina :: div"></div>
+
+</body>
+</html>

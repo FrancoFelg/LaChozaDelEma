@@ -2,8 +2,10 @@ package com.lachozadelema.lachozadelema.servicios;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import javax.servlet.http.HttpSession;
+import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -32,21 +34,56 @@ public class UsuarioService implements UserDetailsService{
 	private FotoServicio fotoServicio;
 	
 	//Create
-	public void crearUsuario(MultipartFile imagen, String nombre, String Password) throws Exception {
-		
+	@Transactional
+	public void crearUsuario(String nombre, String Password, MultipartFile archive) throws Exception {
 		
 		Usuario usuario = new Usuario();
+		
 		usuario.setUsername(nombre);
 		usuario.setPassword(Password);
 		usuario.setRol("ROL_USER");
 		usuario.setStatus(true);
 		
-		Foto foto = fotoServicio.guardar(imagen);
-		usuario.setFoto(foto);
-				
+		if (archive!=null && !archive.isEmpty()){
+            Foto image = fotoServicio.guardar(archive);
+            usuario.setFoto(image);;
+        }
+		
 		usuarioRepositorio.save(usuario);
 		
 	}
+	
+	@Transactional
+	public void editarUsuario(Long id, String nombre, String Password, MultipartFile archive) throws Exception{
+		Optional <Usuario> answer = usuarioRepositorio.findById(id);
+		
+		if(answer.isPresent()){
+			Usuario usuario = answer.get();
+			
+			usuario.setUsername(nombre);
+			usuario.setPassword(Password);
+			usuario.setRol("ROL_USER");
+			usuario.setStatus(true);
+			
+			if (archive!=null && !archive.isEmpty()){
+	            Foto image = fotoServicio.guardar(archive);
+	            usuario.setFoto(image);;
+	        }
+			
+			usuarioRepositorio.save(usuario);
+		}else {
+            throw new Exception("Usuario no encontrado.");
+        }
+	}
+	
+	
+	
+	
+	@Transactional
+	public Usuario getByID(Long id) {
+		return usuarioRepositorio.getById(id);
+	}
+	
 	
 	
 	
