@@ -1,6 +1,5 @@
 package com.lachozadelema.lachozadelema.entidades;
 
-import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -9,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -16,9 +16,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="Usuario")
-public class Usuario implements Serializable{
-
-	private static final long serialVersionUID = 1L;
+public class Usuario{
 
 	@Id
 	@Column(name="usuario_id")
@@ -30,11 +28,12 @@ public class Usuario implements Serializable{
 	
 	private String password;
 	
-	@OneToOne(mappedBy = "fotoPerfil_id", cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "foto_id")
 	private Foto fotoPerfil;
 	
 	@OneToMany(
-			mappedBy = "comentarios",
+			mappedBy = "usuario",
 			cascade = CascadeType.ALL,
 			orphanRemoval = true
 			)

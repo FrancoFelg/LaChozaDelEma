@@ -12,12 +12,9 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 
 @Entity
-public class Foto implements Serializable{
+public class Foto{
 
-	private static final long serialVersionUID = 1L;
-
-	@Id
-	@Column(name="foto_id")
+	@Id	
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	

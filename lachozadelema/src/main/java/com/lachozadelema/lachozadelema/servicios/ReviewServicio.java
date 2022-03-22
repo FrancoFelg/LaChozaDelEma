@@ -84,7 +84,7 @@ public class ReviewServicio {
 		validator.validarInteger(clasificacion, "clasificacion");
 		
 		try {
-			Review review = reviewRepositorio.retornarReviewsPorId(id);
+			Review review = reviewRepositorio.getById(id);
 			review.setTitulo(titulo);
 			review.setTextoAnalisis(textoAnalisis);
 			review.setDescripcion(descripcion);

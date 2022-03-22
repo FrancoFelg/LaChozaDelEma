@@ -10,10 +10,7 @@ import com.lachozadelema.lachozadelema.entidades.Comentarios;
 @Repository
 public interface ComentarioRepositorio extends JpaRepository<Comentarios, Long>{
 	
-	@Query("SELECT a FROM Comentarios a WHERE a.id like :id")
-	public Comentarios retornarComentarioPorId(@Param("id") Long id);
-	
-	@Query("SELECT a FROM Comentarios a WHERE a.usuario.username like :username AND c.baja is NULL")
-	public Comentarios retornarComentarioPorUsuario(@Param("usuario.username") String usuario);
+	@Query("SELECT a FROM Comentarios a WHERE a.usuario.username like :username")
+	public Comentarios retornarComentarioPorUsuario(@Param("username") String usuario);
 	
 }

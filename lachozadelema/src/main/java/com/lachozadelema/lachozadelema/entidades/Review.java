@@ -18,13 +18,10 @@ import java.util.List;
 
 
 @Entity
-@Table(name="review")
-public class Review implements Serializable{
-
-	private static final long serialVersionUID = 1L;
+@Table(name="Review")
+public class Review{
 
 	@Id
-	@Column(name="review_id")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
@@ -32,12 +29,13 @@ public class Review implements Serializable{
 	private String descripcion;
 	private String textoAnalisis;
 	private Integer clasificacion;
-	
-	@OneToOne(mappedBy = "foto_id", cascade = CascadeType.ALL)
+		
+	@OneToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name="foto_id")
 	private Foto fotos;
 	
 	@OneToMany(
-			mappedBy = "comentarios",
+			mappedBy = "review",
 			cascade = CascadeType.ALL,
 			orphanRemoval = true
 			)

@@ -17,34 +17,32 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name="comentarios")
-public class Comentarios implements Serializable{
+@Table(name="Comentarios")
+public class Comentarios{	
 
-	private static final long serialVersionUID = 1L;
-
-	@Id
-	@Column(name="comentarios_id")
+	@Id	
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
 	private String texto;
 	
-	@OneToOne(mappedBy = "usuario_id", cascade = CascadeType.ALL)
+	@ManyToOne
+	@JoinColumn(name = "comentarios")
 	private Usuario usuario;
 	
 	@ManyToOne
-    @JoinColumn(name="review", referencedColumnName = "id", nullable= false)
-	private List<Review> Reviews;
+	@JoinColumn(name = "review")
+	private Review review;
 
 	public Comentarios() {
 		
 	}
 
-	public Comentarios(Long id, String texto, Usuario usuario, List<Review> Reviews) {
+	public Comentarios(Long id, String texto, Usuario usuario, Review review) {
 		this.id = id;
 		this.texto = texto;
 		this.usuario = usuario;
-		this.Reviews = Reviews;
+		this.review = review;
 	}
 
 	public Long getId() {
@@ -71,12 +69,12 @@ public class Comentarios implements Serializable{
 		this.usuario = usuario;
 	}
 
-	public List<Review> getReview() {
-		return Reviews;
+	public Review getReview() {
+		return review;
 	}
 
-	public void setReview(List<Review> review) {
-		Reviews = review;
+	public void setReview(Review review) {
+		this.review = review;
 	}
 	
 }

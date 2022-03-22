@@ -32,7 +32,7 @@ public class FotoServicio {
 		return null; //Si es nula retorna nulo
 	}
 	
-	public Foto actualizar(Integer idFoto, MultipartFile image) throws Exception {
+	public Foto actualizar(Long idFoto, MultipartFile image) throws Exception {
 		if(image != null) { //En caso de que la imagen no sea nula
 			try {
 				Foto foto = new Foto(); //Genero un nuevo objeto (id única)

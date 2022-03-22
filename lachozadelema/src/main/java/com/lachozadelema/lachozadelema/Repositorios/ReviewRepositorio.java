@@ -11,9 +11,6 @@ import com.lachozadelema.lachozadelema.entidades.Review;
 
 @Repository
 public interface ReviewRepositorio extends JpaRepository<Review, Long>{
-
-	@Query("SELECT a FROM Review a WHERE a.id like :id")
-	public Review retornarReviewsPorId(@Param("id") Long id);
 	
 	@Query("SELECT a FROM Review a WHERE a.titulo like :titulo")
 	public List<Review> retornarReviewsPorTitulo(@Param("titulo") String titulo);

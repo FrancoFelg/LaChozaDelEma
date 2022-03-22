@@ -9,9 +9,6 @@ import org.springframework.stereotype.Repository;
 import com.lachozadelema.lachozadelema.entidades.Foto;
 
 @Repository
-public interface FotoRepositorio extends JpaRepository<Foto, Long>{
-	
-	@Query("SELECT a FROM Comentarios a WHERE a.id like :id")
-	public Optional<Foto> findById(Integer idFoto);
+public interface FotoRepositorio extends JpaRepository<Foto, Long>{	
 	
 }
