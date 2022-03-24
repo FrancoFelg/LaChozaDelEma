@@ -9,35 +9,141 @@
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+        
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" 
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+        
+        <style>
+        
+        .body {
+ background-image: url(../imagenes/neon-wallpapers-2706.png);
+ background-size: cover;
+ background-position: center center;
+ background-repeat: no-repeat;
+ background-attachment: fixed;
+ color: #FFFFFF;
+}
+
+.footer-dark {
+  padding:50px 0;
+  color:#f0f9ff;
+  background-color:#282d32;
+}
+
+.footer-dark h3 {
+  margin-top:0;
+  margin-bottom:12px;
+  font-weight:bold;
+  font-size:16px;
+}
+
+.footer-dark ul {
+  padding:0;
+  list-style:none;
+  line-height:1.6;
+  font-size:14px;
+  margin-bottom:0;
+}
+
+.footer-dark ul a {
+  color:inherit;
+  text-decoration:none;
+  opacity:0.6;
+}
+
+.footer-dark ul a:hover {
+  opacity:0.8;
+}
+
+@media (max-width:767px) {
+  .footer-dark .item:not(.social) {
+    text-align:center;
+    padding-bottom:20px;
+  }
+}
+
+.footer-dark .item.text {
+  margin-bottom:36px;
+}
+
+@media (max-width:767px) {
+  .footer-dark .item.text {
+    margin-bottom:0;
+  }
+}
+
+.footer-dark .item.text p {
+  opacity:0.6;
+  margin-bottom:0;
+}
+
+.footer-dark .item.social {
+  text-align:center;
+}
+
+@media (max-width:991px) {
+  .footer-dark .item.social {
+    text-align:center;
+    margin-top:20px;
+  }
+}
+
+.footer-dark .item.social > a {
+  font-size:20px;
+  width:36px;
+  height:36px;
+  line-height:36px;
+  display:inline-block;
+  text-align:center;
+  border-radius:50%;
+  box-shadow:0 0 0 1px rgba(255,255,255,0.4);
+  margin:0 8px;
+  color:#fff;
+  opacity:0.75;
+}
+
+.footer-dark .item.social > a:hover {
+  opacity:0.9;
+}
+
+.footer-dark .copyright {
+  text-align:center;
+  padding-top:24px;
+  opacity:0.3;
+  font-size:13px;
+  margin-bottom:0;
+}
+        </style>
+        
 </head>
 
 <body>
+
+    <!-- BARRA DE NAVEGACION -->
+    <nav th:replace="/fragments/navbar :: nav"></nav>
+	
     <!-- IMAGEN PORTADA -->
     <div>
         <img src="imagenes/index1.png" class="img-fluid" alt="Imagen portada">
     </div>
-    <nav th:replace="/fragments/navbar :: nav"></nav>
     
-    <!-- BARRA DE NAVEGACION -->
-
+    <!-- BARRA DE PERSONAJES -->
      <div th:replace="/fragments/personajes :: div"></div>
-      
+
       <!-- HTML A YOUTUBE -->
-    <div class="container">
-      <a th:href="@{/youtubeChannel}"><img src="imagenes/youtubeLink.png" class="img-fluid"></a>
-      <h3>
+    <div class="container bg-dark">
+      <a th:href="@{https://www.youtube.com/channel/UC0jnNPLrb5A1Vwv2b2Ahdhw?view_as=subscriber}"><img src="imagenes/youtubeLink.png" class="img-fluid"></a>
+      <h3 style="text-align:center">
           Mira más videos en nuestro canal de YouTube. No te olvides de suscribirte para apoyarnos.
       </h3>
-      </class>
     </div>
 
       <!-- LINK A PESTAÑA REVIEWS -->
-    <div class="container">
-      <a th:href="@{/youtubeListReview}"><img src="imagenes/reviewLink.png" class="img-fluid"></a>
-      <h3>
+    <div class="container bg-dark">
+      <a th:href="@{https://www.youtube.com/channel/UC0jnNPLrb5A1Vwv2b2Ahdhw/videos}"><img src="imagenes/reviewsLink.png" class="img-fluid"></a>
+      <h3 style="text-align:center">
           Lee las reviews que hemos preparado para vos.
       </h3>
-    </class>
     </div>
 
     <!-- PIE DE PAGINA -->

@@ -33,7 +33,10 @@ public class UsuarioController {
 	
 	
 	@PostMapping("/crearUsuario") //
-	public String redireccionarRegister(ModelMap model, @RequestParam MultipartFile archive, @RequestParam String username, @RequestParam String password) throws Exception {
+	public String redireccionarRegister(ModelMap model, 
+			@RequestParam MultipartFile archive, 
+			@RequestParam String username, 
+			@RequestParam String password) throws Exception {
 		usuarioService.crearUsuario(username, password, archive);
 		return "redirect:/";
 	}
@@ -50,7 +53,10 @@ public class UsuarioController {
 	
 	
 	@PostMapping("/editarUsuario/{id}")
-	public String editarUsuario(ModelMap model, @RequestParam Long id, @RequestParam String username, @RequestParam String password, @RequestParam MultipartFile archive) throws Exception{
+	public String editarUsuario(ModelMap model, @RequestParam Long id, 
+			@RequestParam String username, 
+			@RequestParam String password, 
+			@RequestParam MultipartFile archive) throws Exception{
 		try {
 			usuarioService.editarUsuario(id, username, password, archive);
             return "redirect:/";
@@ -76,16 +82,5 @@ public class UsuarioController {
 		
 		return "usuario.html";
 	}
-	
-	
-	@GetMapping("/login")
-	public String retornarLogin() {
-		return "login.html";
-	}
-	
-	@GetMapping("/logout")
-	public String retornarLogout() {
-		return "logout.html";
-	}
-	
+
 }
